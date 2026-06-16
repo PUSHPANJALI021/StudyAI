@@ -105,7 +105,7 @@ If GEMINI_API_KEY is omitted, predictions and recommendations still work via the
 Run the server:
 
 bashnpm run dev    # nodemon, auto-restart
-# or
+
 npm start
 
 The API runs on http://localhost:5000 by default.
