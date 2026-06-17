@@ -58,14 +58,14 @@ StudyAI is an AI-powered study planning system that helps students track their s
 
 ## Tech Stack
 
-### Frontend (`/client`)
+### Frontend (/client)
 - React 19 + Vite
 - Router-free SPA (state-based navigation)
 - Recharts (data visualization)
 - Lucide React (icons)
 - Axios (API requests)
 
-### Backend (`/server`)
+### Backend (/server)
 - Node.js + Express
 - MongoDB + Mongoose
 - Google Generative AI (Gemini 1.5 Flash)
