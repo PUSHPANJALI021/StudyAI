@@ -4,8 +4,6 @@ StudyAI is an AI-powered study planning system that helps students track their s
 
 
 
----
-
 ## Features
 
 ### 📖 Subject & Syllabus Management
