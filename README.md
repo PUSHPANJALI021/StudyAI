@@ -10,11 +10,14 @@ Create subjects with exam dates
 Set daily study-hour targets
 Add topics with difficulty levels (1–5)
 
+
+
 ⏱️ Study Session Logging
 Log study time per topic
 Add confidence ratings (1–5)
 Notes support for each session
 Automatic updates to topic progress
+
 
 🤖 AI Completion Forecast
 Uses Google Gemini (1.5 Flash)
@@ -25,6 +28,7 @@ Risk level (Low / Medium / High)
 Confidence score
 Reasoning summary
 Falls back to deterministic algorithm if AI is unavailable
+
 
 📅 AI Daily Recommendations
 Suggests what to study today
@@ -55,6 +59,8 @@ Node.js + Express
 MongoDB + Mongoose
 Google Generative AI (Gemini 1.5 Flash)
 dotenv, CORS
+
+
 📁 Project Structure
 StudyAI/
 ├── client/
@@ -81,6 +87,7 @@ StudyAI/
     ├── services/
     │   └── aiService.js
     └── index.js
+    
 🔌 API Endpoints
 Subjects
 Method	Endpoint	Description
