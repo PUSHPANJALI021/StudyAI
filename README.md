@@ -1,119 +1,141 @@
 StudyAI — Smart Study Planner
 
-An AI-powered study planner for students. Track subjects and syllabus topics, log study sessions, and get AI-driven forecasts of whether you'll finish your syllabus before exam day plus personalized daily topic recommendations.
+StudyAI is an AI-powered study planning system that helps students track their syllabus, log study sessions, and predict whether they will complete their syllabus before exam day. It also provides intelligent daily topic recommendations using AI (Google Gemini) or a built-in fallback algorithm.
 
-Live demo: 
+ Live Demo
 
-Screenshots
+✨ Features
+📖 Subject & Syllabus Management
+Create subjects with exam dates
+Set daily study-hour targets
+Add topics with difficulty levels (1–5)
 
+⏱️ Study Session Logging
+Log study time per topic
+Add confidence ratings (1–5)
+Notes support for each session
+Automatic updates to topic progress
 
+🤖 AI Completion Forecast
+Uses Google Gemini (1.5 Flash)
+Predicts:
+Whether syllabus will be completed on time
+Expected completion date
+Risk level (Low / Medium / High)
+Confidence score
+Reasoning summary
+Falls back to deterministic algorithm if AI is unavailable
 
+📅 AI Daily Recommendations
+Suggests what to study today
+Prioritizes:
+High-difficulty topics
+Low-confidence areas
+Works with AI or fallback logic
 
+📊 Dashboard Analytics
+Total subjects and topics
+Completion percentage
+Study hours tracking
+Visual charts using Recharts
 
-Features
+🗓️ Schedule View
+Auto-generated daily study plan
+AI-enhanced planning (when available)
 
-
-Subject & syllabus management — create subjects with an exam date, daily study-hour target, and a list of topics, each with a difficulty rating (1–5).
-Study session logging — log hours studied per topic with a post-study confidence rating (1–5) and notes; hours and confidence automatically roll up into the parent topic.
-AI completion forecast — sends recent study history to Google's Gemini model to predict whether you'll finish the syllabus in time, with a confidence score, projected completion date, risk level, and reasoning.
-AI daily recommendations — given your available hours today, Gemini (or a built-in heuristic) suggests which topics to focus on, prioritizing high-difficulty, low-confidence topics.
-Algorithmic fallback — if no GEMINI_API_KEY is configured (or the API call fails), both AI features fall back to a deterministic algorithm so the app keeps working.
-Dashboard — overview of total subjects, topics, completion percentage, hours studied, and charts (via Recharts).
-Schedule view — client-side generated schedule plus an AI-generated plan for the day.
-
-
-Tech Stack
-
-Client (/client)
-
-
+🧠 Tech Stack
+Frontend (/client)
 React 19 + Vite
-React Router-free single-page navigation (state-based)
-Recharts for charts
-Lucide React for icons
-Axios for HTTP requests
-
-
-Server (/server)
-
-
+React Router-free SPA (state-based navigation)
+Recharts (data visualization)
+Lucide React (icons)
+Axios (API requests)
+Backend (/server)
 Node.js + Express
 MongoDB + Mongoose
-@google/generative-ai (Gemini 1.5 Flash) for AI predictions/recommendations
-CORS, dotenv
-
-
-Project Structure
-
+Google Generative AI (Gemini 1.5 Flash)
+dotenv, CORS
+📁 Project Structure
 StudyAI/
 ├── client/
 │   ├── public/
 │   └── src/
 │       ├── components/
-│       │   ├── Dashboard.jsx       # Overview stats + charts
-│       │   ├── SubjectForm.jsx     # Create/manage subjects & topics
-│       │   ├── StudyLogger.jsx     # Log study sessions
-│       │   ├── ScheduleView.jsx    # Daily schedule (algorithmic + AI)
-│       │   └── PredictionCard.jsx  # AI completion forecast widget
+│       │   ├── Dashboard.jsx
+│       │   ├── SubjectForm.jsx
+│       │   ├── StudyLogger.jsx
+│       │   ├── ScheduleView.jsx
+│       │   └── PredictionCard.jsx
 │       ├── App.jsx
 │       └── main.jsx
+│
 └── server/
     ├── models/
-    │   ├── Subject.js       # Subject + embedded Topic schema
-    │   ├── StudySession.js  # Logged study sessions
-    │   └── User.js          # User schema (not yet wired to auth routes)
+    │   ├── Subject.js
+    │   ├── StudySession.js
+    │   └── User.js
     ├── routes/
     │   ├── subjects.js
     │   ├── sessions.js
     │   └── predictions.js
     ├── services/
-    │   └── aiService.js     # Gemini calls + algorithmic fallbacks
-    └── index.js              # Express app entry point
-
-API Endpoints
-
-MethodEndpointDescriptionGET/api/subjects/:userIdGet all subjects for a userPOST/api/subjectsCreate a subject with topicsPOST/api/subjects/:id/topicAdd a topic to a subjectPUT/api/subjects/:id/topicUpdate a topic (completion, hours, confidence)DELETE/api/subjects/:idDelete a subjectGET/api/sessions/:userIdGet all study sessions for a userPOST/api/sessionsLog a new study session (syncs hours/confidence to the topic)DELETE/api/sessions/:idDelete a session (rolls back hours on the topic)POST/api/predictions/completionAI/algorithmic forecast for a subject's completionPOST/api/predictions/recommendAI/algorithmic topic recommendations for today
-
-Getting Started
-
-Prerequisites
-
-
-Node.js 18+
-A MongoDB connection string (e.g. from MongoDB Atlas)
-(Optional, for AI features) A Gemini API key
-
-
-1. Clone the repo
-
-bashgit clone https://github.com/PUSHPANJALI021/StudyAI.git
+    │   └── aiService.js
+    └── index.js
+🔌 API Endpoints
+Subjects
+Method	Endpoint	Description
+GET	/api/subjects/:userId	Get all subjects
+POST	/api/subjects	Create subject
+POST	/api/subjects/:id/topic	Add topic
+PUT	/api/subjects/:id/topic	Update topic
+DELETE	/api/subjects/:id	Delete subject
+Study Sessions
+Method	Endpoint	Description
+GET	/api/sessions/:userId	Get sessions
+POST	/api/sessions	Log session
+DELETE	/api/sessions/:id	Delete session
+AI Predictions
+Method	Endpoint	Description
+POST	/api/predictions/completion	Completion forecast
+POST	/api/predictions/recommend	Daily recommendations
+⚙️ Getting Started
+1️⃣ Clone the repository
+git clone https://github.com/PUSHPANJALI021/StudyAI.git
 cd StudyAI
-
-2. Set up the server
-
-bashcd server
+2️⃣ Setup Backend
+cd server
 npm install
 
-Create a server/.env file (do not commit this file):
+Create .env file:
 
 PORT=5000
 MONGODB_URI=your_mongodb_connection_string
 GEMINI_API_KEY=your_gemini_api_key
 
-If GEMINI_API_KEY is omitted, predictions and recommendations still work via the algorithmic fallback in aiService.js.
+Run server:
 
-Run the server:
+npm run dev
 
-bashnpm run dev    # nodemon, auto-restart
+Server runs at:
 
-npm start
-
-The API runs on http://localhost:5000 by default.
-
-3. Set up the client
-
-bashcd ../client
+http://localhost:5000
+3️⃣ Setup Frontend
+cd ../client
 npm install
 npm run dev
 
-The client runs on Vite's default dev port (typically http://localhost:5173).
+Client runs at:
+
+http://localhost:5173
+🧩 Key Design Highlights
+🔁 AI + fallback hybrid system (always functional)
+📊 Real-time progress tracking per topic
+🧠 Smart prioritization logic for studying
+⚡ Lightweight React SPA (no router complexity)
+🔐 Backend structured for future auth integration
+🔮 Future Improvements
+User authentication (JWT / OAuth)
+Calendar integration
+Notifications & reminders
+Mobile app version
+Smarter ML-based prediction model
