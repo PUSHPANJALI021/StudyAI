@@ -6,18 +6,6 @@ StudyAI is an AI-powered study planning system that helps students track their s
 
 ---
 
-## Table of Contents
-
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [API Endpoints](#api-endpoints)
-- [Getting Started](#getting-started)
-- [Key Design Highlights](#key-design-highlights)
-- [Future Improvements](#future-improvements)
-
----
-
 ## Features
 
 ### 📖 Subject & Syllabus Management
