@@ -161,7 +161,7 @@ npm run dev
 
 Client runs at: `http://localhost:5173`
 
----
+
 
 ## Key Design Highlights
 
