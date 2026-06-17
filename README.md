@@ -2,7 +2,7 @@
 
 StudyAI is an AI-powered study planning system that helps students track their syllabus, log study sessions, and predict whether they will complete their syllabus before exam day. It also provides intelligent daily topic recommendations using AI (Google Gemini) or a built-in fallback algorithm.
 
-**[Live Demo](#)**  https://study-ai-kl34.vercel.app/
+**[Live Demo](#)** :   https://study-ai-kl34.vercel.app/
 
 ---
 
