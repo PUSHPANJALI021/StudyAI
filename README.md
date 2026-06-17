@@ -40,7 +40,6 @@ StudyAI is an AI-powered study planning system that helps students track their s
 - Auto-generated daily study plan
 - AI-enhanced planning (when available)
 
----
 
 ## Tech Stack
 
@@ -57,7 +56,7 @@ StudyAI is an AI-powered study planning system that helps students track their s
 - Google Generative AI (Gemini 1.5 Flash)
 - dotenv, CORS
 
----
+
 
 ## Project Structure
 
